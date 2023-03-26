@@ -20,6 +20,7 @@ const Header = () => {
 
 
   const controlNavbar = () => {
+    
     if (window.scrollY > 200) {
         if (window.scrollY > lastScrollY && !mobileMenu) {
             setShow("-translate-y-[80px]");
@@ -32,8 +33,6 @@ const Header = () => {
     setLastScrollY(window.scrollY);
 };
 
-
-
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar)
   
@@ -42,8 +41,6 @@ const Header = () => {
     }
   }, [lastScrollY])
   
-
-
 
   return (
     <header
