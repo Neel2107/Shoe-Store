@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import HeroBanner from "@/components/HeroBanner";
 import ProductCard from "@/components/ProductCard";
 import Wrapper from "@/components/Wrapper";
