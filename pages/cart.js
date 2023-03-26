@@ -39,7 +39,7 @@ const Cart = () => {
                   Subtotal
                 </div>
                 <div className="text-md md:text-lg font-medium text-black">
-                  {/* &#8377;{subTotal} */} 7 karod
+                  {/* {subTotal} */} &#8377;9878946
                 </div>
               </div>
               <div className="text-sm md:text-md py-5 border-t mt-5">

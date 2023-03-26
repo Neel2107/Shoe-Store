@@ -30,13 +30,13 @@ const CartItem = () => {
 
           {/* PRODUCT PRICE */}
           <div className="text-sm md:text-md font-bold text-black/[0.5] mt-2">
-            MRP : &#8377;TUMHARI OKAT SE BAHAR
+            MRP : &#8377;12785
           </div>
         </div>
 
         {/* PRODUCT SUBTITLE */}
         <div className="text-md font-medium text-black/[0.5] hidden md:block">
-          LE SUBTITLE
+          Good Shoes
         </div>
 
         <div className="flex items-center justify-between mt-4">
@@ -58,15 +58,15 @@ const CartItem = () => {
             <div className="flex items-center gap-1">
               <div className="font-semibold">Quantity:</div>
               <select className="hover:text-black">
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
-                <option value="1"> UK 1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
+                <option value="1">  1</option>
               </select>
             </div>
 
