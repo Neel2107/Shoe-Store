@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 const ProductCard = () => {
   return (
-    <a href="/product/1">
+    <Link href="/product/1">
       <Image
         width={500}
         height={500}
@@ -21,7 +21,7 @@ const ProductCard = () => {
           </p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

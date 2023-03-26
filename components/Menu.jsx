@@ -30,7 +30,7 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
                 {item.name}
                 <BsChevronDown size={14} />
                 {showCatMenu && (
-                  <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
+                  <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg z-50">
                     {subMenuData.map((submenu) => {
                       return (
                         // eslint-disable-next-line @next/next/no-html-link-for-pages
