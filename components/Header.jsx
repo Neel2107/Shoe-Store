@@ -9,6 +9,10 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { BsCart } from "react-icons/bs";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
+import { fetchDataFromApi } from "@/utils/api";
+
+
+
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -16,6 +20,7 @@ const Header = () => {
   const [show, setShow] = useState("translate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [categories, setCategories] = useState(null);
+  
 
   const controlNavbar = () => {
     if (window.scrollY > 200) {
@@ -36,6 +41,18 @@ const Header = () => {
       window.removeEventListener("scroll", controlNavbar);
     };
   }, [lastScrollY, controlNavbar]);
+
+
+  useEffect(() =>{
+    fetchCategories()
+
+  },[])
+
+  
+  const fetchCategories = async ()=>{
+    const data =  await fetchDataFromApi('/api/categories?populate=*')
+    setCategories(data)
+        }
 
   return (
     <header
