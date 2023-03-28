@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 
@@ -22,11 +22,21 @@ const MenuMobile = ({
   setMobileMenu,
   categories,
 }) => {
+  const [storeCategories, setStoreCategories] = useState([]);
+
+  useEffect(() => {
+    if (categories !== null) {
+      console.log(categories + "\\\\\\\\\\\\\\\\\\\\\\\\\\");
+
+      setStoreCategories(categories);
+    }
+  }, [categories]);
+
   return (
     <ul className="flex flex-col md:hidden font-bold absolute top-[50px] left-0 w-full h-[calc(100vh-50px)] bg-white border-t text-black">
       {data.map((item) => {
         return (
-          <React.Fragment key={item.id}>
+          <div key={item.id}>
             {!!item?.subMenu ? (
               <li
                 className="cursor-pointer py-4 px-5 border-b flex flex-col relative"
@@ -39,25 +49,26 @@ const MenuMobile = ({
 
                 {showCatMenu && (
                   <ul className="bg-black/[0.05] -mx-5 mt-4 -mb-4">
-                    {categories?.map(({ attributes: c, id }) => {
-                      return (
-                        <Link
-                          key={id}
-                          href={`/category/${c.slug}`}
-                          onClick={() => {
-                            setShowCatMenu(false);
-                            setMobileMenu(false);
-                          }}
-                        >
-                          <li className="py-4 px-8 border-t flex justify-between">
-                            {c.name}
-                            <span className="opacity-50 text-sm">
-                              {`(${c.products.data.length})`}
-                            </span>
-                          </li>
-                        </Link>
-                      );
-                    })}
+                    {storeCategories &&
+                      storeCategories?.data?.map(({ attributes: c, id }) => {
+                        return (
+                          <Link
+                            key={id}
+                            href={`/category/${c.slug}`}
+                            onClick={() => {
+                              setShowCatMenu(false);
+                              setMobileMenu(false);
+                            }}
+                          >
+                            <li className="py-4 px-8 border-t flex justify-between">
+                              {c.name}
+                              <span className="opacity-50 text-sm">
+                                {`(${c.products.data.length})`}
+                              </span>
+                            </li>
+                          </Link>
+                        );
+                      })}
                   </ul>
                 )}
               </li>
@@ -68,7 +79,7 @@ const MenuMobile = ({
                 </Link>
               </li>
             )}
-          </React.Fragment>
+          </div>
         );
       })}
     </ul>

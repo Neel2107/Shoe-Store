@@ -21,6 +21,7 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [categories, setCategories] = useState(null);
   
+  
 
   const controlNavbar = () => {
     if (window.scrollY > 200) {
@@ -51,13 +52,14 @@ const Header = () => {
   
   const fetchCategories = async ()=>{
     const data =  await fetchDataFromApi('/api/categories?populate=*')
+ console.log(data)
     setCategories(data)
         }
 
   return (
     <header
-      className={`w-full h-[50px] md:h-[80px] bg-white flex items-center justify-between z-20 top-0 transition-transform duration-300 ${show} `}
-    >
+            className={`w-full h-[50px] md:h-[80px] bg-white flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 ${show}`}
+        >
       <Wrapper className="h-[60px] flex justify-between items-center">
         <Link href="/">
           <img src="/logo.svg" className="w-[40px] md:w-[60px] " />
@@ -67,7 +69,7 @@ const Header = () => {
           setShowCatMenu={setShowCatMenu}
           categories={categories}
         />
-
+{/* {console.log(categories)} */}
         {mobileMenu && (
           <MenuMobile
             showCatMenu={showCatMenu}

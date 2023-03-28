@@ -1,4 +1,5 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
+import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
 
 const data = [
@@ -15,12 +16,37 @@ const subMenuData = [
   { id: 4, name: "Football shoes", doc_count: 107 },
 ];
 
+
+
+
+
 const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
+
+
+
+const [storeCategories, setStoreCategories] = useState([])
+
+useEffect(() => {
+
+  if (categories !== null ){
+
+    console.log(categories + "\\\\\\\\\\\\\\\\\\\\\\\\\\")
+
+    setStoreCategories(categories)
+  }
+    
+
+ 
+}, [categories])
+
+
+  
+  // console.log("categories !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + storeCategories);
   return (
-    <ul className="hidden  md:flex items-center gap-8 font-medium text-black">
+    <ul className="hidden md:flex items-center gap-8 font-medium text-black">
       {data.map((item) => {
         return (
-          <React.Fragment key={item.id}>
+          <div key={item.id}>
             {!!item?.subMenu ? (
               <li
                 className="cursor-pointer flex items-center gap-2 relative"
@@ -29,36 +55,34 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
               >
                 {item.name}
                 <BsChevronDown size={14} />
-                {showCatMenu && (
-                  <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg z-50">
-                    {subMenuData.map((submenu) => {
-                      return (
-                        // eslint-disable-next-line @next/next/no-html-link-for-pages
-                        <a key={submenu.id} href="/" onClick={() => setShowCatMenu(false)}>
 
-                        <li
-                          key={submenu.id}
-                          className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md"
+                {showCatMenu && (
+                  <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
+                    {storeCategories &&  storeCategories?.data?.map(({ attributes: c, id }) => {
+                      return (
+                        <Link
+                          key={id}
+                          href={`/category/${c.slug}`}
+                          onClick={() => setShowCatMenu(false)}
                         >
-                         
-                            {submenu.name}
+                          <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md">
+                            {c.name}
                             <span className="opacity-50 text-sm">
-                              {submenu.doc_count}
+                              {`(${c.products.data.length})`}
                             </span>
-                          
-                        </li>
-                        </a>
+                          </li>
+                        </Link>
                       );
                     })}
                   </ul>
                 )}
               </li>
             ) : (
-              <li className="cursor-pointer ">
-                <a href={item?.url}>{item.name}</a>
+              <li className="cursor-pointer">
+                <Link href={item?.url}>{item.name}</Link>
               </li>
             )}
-          </React.Fragment>
+          </div>
         );
       })}
     </ul>
