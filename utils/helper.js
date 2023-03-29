@@ -1,6 +1,10 @@
-export const getDiscountedPricePercentage = (originalPrice, discountedPrice)=>{
+export const getDiscountedPricePercentage = (
+    originalPrice,
+    discountedPrice
+) => {
     const discount = originalPrice - discountedPrice;
 
-    const discountPercenatge = (discount/originalPrice * 100)
-    return discountPercenatge.toFixed(2)
-}
+    const discountPercentage = (discount / originalPrice) * 100;
+
+    return discountPercentage.toFixed(2);
+};

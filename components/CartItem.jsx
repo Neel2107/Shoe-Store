@@ -89,7 +89,7 @@ const CartItem = ({ data }) => {
                   return (
                     <option key={i} value={q} selected={data.quantity === q}>
                       {q}
-                      {console.log(q + "///////////////////")}
+                      {/* {console.log(q + "///////////////////")} */}
                     </option>
                   );
                 })}
