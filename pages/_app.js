@@ -4,6 +4,11 @@ import "@/styles/globals.css";
 import Head from "next/head";
 
 
+import store from "@/store/store";
+import { Provider } from 'react-redux'
+
+
+
 export default function App({ Component, pageProps }) {
   return (
     <>
@@ -23,9 +28,11 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
+      <Provider store={store}>
       <Header/>
       <Component {...pageProps}  />
       <Footer/>
+      </Provider>
     </>
   );
 }

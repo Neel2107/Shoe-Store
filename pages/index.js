@@ -5,6 +5,11 @@ import Wrapper from "@/components/Wrapper";
 import { React } from "react";
 import { fetchDataFromApi } from "./../utils/api";
 
+
+
+
+
+
 export default function Home({products}) {
  
 

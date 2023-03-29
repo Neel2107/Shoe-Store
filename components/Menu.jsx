@@ -30,7 +30,7 @@ useEffect(() => {
 
   if (categories !== null ){
 
-    console.log(categories + "\\\\\\\\\\\\\\\\\\\\\\\\\\")
+    // console.log(categories + "\\\\\\\\\\\\\\\\\\\\\\\\\\")
 
     setStoreCategories(categories)
   }
