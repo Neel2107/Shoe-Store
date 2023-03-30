@@ -4,7 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import { useRouter } from "next/router";
 import { fetchDataFromApi } from "@/utils/api";
 
-import { getStaticPaths, getStaticProps } from 'next';
+// import { getStaticPaths, getStaticProps } from 'next';
 
 import useSWR from "swr";
 const maxResult = 3;
@@ -85,11 +85,13 @@ export async function getStaticPaths() {
     },
   }));
 
+
   return {
     paths,
     fallback: false,
   };
 }
+
 
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps({ params: { slug } }) {

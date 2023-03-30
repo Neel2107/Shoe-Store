@@ -185,6 +185,9 @@ export async function getStaticPaths() {
       slug: p.attributes.slug,
     },
   }));
+    
+console.log(paths)
+console.log("++++++++++++++++++++++")
 
   return {
     paths,
