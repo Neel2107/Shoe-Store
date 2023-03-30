@@ -3,6 +3,9 @@ import Wrapper from "@/components/Wrapper";
 import ProductCard from "@/components/ProductCard";
 import { useRouter } from "next/router";
 import { fetchDataFromApi } from "@/utils/api";
+
+import { getStaticPaths, getStaticProps } from 'next';
+
 import useSWR from "swr";
 const maxResult = 3;
 const Category = ({ category, products, slug }) => {
